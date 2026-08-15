@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "mines_probability",
+  "version": "${version}",
+  "name": "Mines Probability",
+  "description": "Affiche la probabilité de mine parmi les cases couvertes.",
+  "authors": [
+    "MinesProbability"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.example.minesprobability.MinesProbabilityClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.11",
+    "fabric-api": "*"
+  }
+}
