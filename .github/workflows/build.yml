@@ -1,0 +1,35 @@
+name: Build Fabric Mod
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le projet
+        uses: actions/checkout@v4
+
+      - name: Installer Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Installer Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.2'
+
+      - name: Compiler le mod
+        run: gradle build
+
+      - name: Récupérer le JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: mines-probability
+          path: build/libs/*.jar
